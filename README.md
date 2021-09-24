@@ -1,10 +1,40 @@
 # Jarkom-Modul-1-T03-2021
 
 ### 1. Sebutkan webserver yang digunakan pada "ichimarumaru.tech"! 
+##### 1.1 Menggunakan command `http.host contains "ichimarumaru.tech"`
+![1](https://user-images.githubusercontent.com/73921231/134695215-951da7dc-85b4-461c-b4be-984fe4e389e2.jpg)
+##### 1.2 Klik kanan salah satu stream -> Follow TCP Stream 
+![1-1](https://user-images.githubusercontent.com/73921231/134694845-043d544d-e19e-4c6c-bc01-8080d53799e7.jpg)
+ichimarumaru.tech menggunakan nginx webserver
+
 ### 2. Temukan paket dari web-web yang menggunakan basic authentication method!
+##### 2.1 Menggunakan command `http.authbasic`
+![2](https://user-images.githubusercontent.com/73921231/134694868-4e2f7cea-1fcd-48a6-a3a1-306800e06edd.jpg)
+##### 2.2 Pada bagian `Hypertext Transfer Protocol` terdapat `[Full Request URI]` yang merupakan link URI web
+![2-1](https://user-images.githubusercontent.com/73921231/134694881-76e86f80-1391-4c94-871e-1ce8ebd3d7ab.jpg)
+web-web yang menggunakan basic authentication:
+
+`http://basic.ichimarumaru.tech/favicon.ico`
+
+`http://basic.ichimarumaru.tech/meme.png`
+
+`http://basic.ichimarumaru.tech/`
+
 ### 3. Ikuti perintah di basic.ichimarumaru.tech! Username dan password bisa didapatkan dari file .pcapng!
+#### Menggunakan command yang sama dengan soal no 2, pada bagian `Hypertext Transfer Protocol` terdapat `Authorization: Credentials:` yang merupakan username dan password untuk login di `basic.ichimarumaru.tech`
+![3](https://user-images.githubusercontent.com/73921231/134694896-0fb67b29-dd9a-4958-901f-9562221df6d2.jpg)
+#### Setelah login, terdapat soal dan telah terjawab pada text box dibawah
+![3-1](https://user-images.githubusercontent.com/73921231/134694923-1ab10ff7-7206-4e35-822a-9a0050e4aa95.jpg)
+
 ### 4. Temukan paket mysql yang mengandung perintah query select!
+#### Menggunakan command `frame contains "SELECT"`
+![4](https://user-images.githubusercontent.com/73921231/134694934-62e90229-fec2-43c4-b339-de10d58eb274.jpg)
+
 ### 5. Login ke portal.ichimarumaru.tech kemudian ikuti perintahnya! Username dan password bisa didapat dari query insert pada table users dari file .pcap!
+#### Menggunakan command `frame contains "INSERT"`. dan dapat diketahui username dan password melalui query `INSERT` tersebut, lalu bisa digunakan untuk login di `portal.ichimarumaru.tech`
+![5](https://user-images.githubusercontent.com/73921231/134694947-36920d09-4f06-442f-8c36-1437df502901.jpg)
+#### Setelah login, terdapat soal dan telah terjawab pada text box dibawah
+![5-1](https://user-images.githubusercontent.com/73921231/134698303-8b446dcd-9ff9-4e24-bc0f-145b0f06972a.jpg)
 
 ### 6. Cari username dan password ketika melakukan login ke FTP Server!
 Command yang dieksekusi -> ftp.request.command == "USER" || ftp.request.command == "PASS"
