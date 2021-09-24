@@ -5,11 +5,46 @@
 ### 3. Ikuti perintah di basic.ichimarumaru.tech! Username dan password bisa didapatkan dari file .pcapng!
 ### 4. Temukan paket mysql yang mengandung perintah query select!
 ### 5. Login ke portal.ichimarumaru.tech kemudian ikuti perintahnya! Username dan password bisa didapat dari query insert pada table users dari file .pcap!
+
 ### 6. Cari username dan password ketika melakukan login ke FTP Server!
+Command yang dieksekusi -> ftp.request.command == "USER" || ftp.request.command == "PASS"
+![image](https://user-images.githubusercontent.com/61416036/134688183-1098465a-6bec-4978-84ce-f0ee9d7803fd.png)
+
 ### 7. Ada 500 file zip yang disimpan ke FTP Server dengan nama 0.zip, 1.zip, 2.zip, ..., 499.zip. Simpan dan Buka file pdf tersebut. (Hint = nama pdf-nya "Real.pdf")
+Command yang dieksekusi -> frame contains Real.pdf
+![image](https://user-images.githubusercontent.com/61416036/134688460-4074787d-d2f3-486c-a0cc-f538f07cc45f.png)
+
+Kemudian follow TCP stream -> show data as RAW -> save as .pdf
+![image](https://user-images.githubusercontent.com/61416036/134688580-df72b294-1768-4bae-a25b-2b88fafe62a7.png)
+
+![image](https://user-images.githubusercontent.com/61416036/134688614-e6a0534b-eea9-40d1-8195-530c19dace68.png)
+
 ### 8. Cari paket yang menunjukan pengambilan file dari FTP tersebut!
+Command yang dieksekusi -> ftp.request.command == RETR
+![image](https://user-images.githubusercontent.com/61416036/134688737-7716d351-10ca-4fd7-9e4c-862ccf75be14.png)
+
 ### 9. Dari paket-paket yang menuju FTP terdapat inidkasi penyimpanan beberapa file. Salah satunya adalah sebuah file berisi data rahasia dengan nama "secret.zip". Simpan dan buka file tersebut!
+Command yang dieksekusi -> ftp.request.command == “STOR”
+![image](https://user-images.githubusercontent.com/61416036/134688803-4994506f-2fdd-4b2e-b36e-adf59682da09.png)
+
+Follow TCP stream secret.zip 
+![image](https://user-images.githubusercontent.com/61416036/134688982-b1ee9c28-c63f-42c8-8ee7-d3f68883b1bc.png)
+
+ubah stream jadi 10 -> show data as RAW -> save as .zip
+![image](https://user-images.githubusercontent.com/61416036/134689163-44423ad6-c297-4f4e-a8ee-de861b8905cf.png)
+
+zip membutuhkan password
+![image](https://user-images.githubusercontent.com/61416036/134689258-b26a01de-5188-45fb-b7f7-b9cc330084b5.png)
+
 ### 10. Selain itu terdapat "history.txt" yang kemungkinan berisi history bash server tersebut! Gunakan isi dari "history.txt" untuk menemukan password untuk membuka file rahasia yang ada di "secret.zip"!
+Follow TCP stream history.txt -> ada clue yang mengatakan bahwa kunci ada di baris terakhir bukanapaapa.txt
+![image](https://user-images.githubusercontent.com/61416036/134689395-ccd17762-0917-4b15-8592-491555d09456.png)
+
+Follow TCP stream bukanapaapa.txt, muncul password zip nya
+![image](https://user-images.githubusercontent.com/61416036/134689682-728e2e2d-8ade-4834-a719-e9c082480845.png)
+
+setelah di extract file zip nya maka muncul file wanted.pdf
+![image](https://user-images.githubusercontent.com/61416036/134689902-0d5db486-9ad5-4c81-9545-1e72e2d78545.png)
 
 ### 11. Filter sehingga wireshark hanya mengambil paket yang berasal dari port 80! 
 Mengisi Capture Filter dengan : `src port 80`
