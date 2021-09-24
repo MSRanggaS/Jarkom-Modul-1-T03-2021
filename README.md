@@ -117,3 +117,6 @@ Kedua, kami mengisi Capture Filter dengan : `src host 10.148.151.45`
 
 Berikut adalah tampilan dari wireshark yang hanya mengambil paket dyang berasal dari IP kami:
 ![image](https://user-images.githubusercontent.com/73152464/134685299-4de13c22-f0e1-4afd-ae6d-22802d13e70d.png)
+
+## KENDALA
+### Waktu praktikum bertepatan dengan trouble provider telkomsel, sehingga pengerjaan praktikum terhambat. Dan kebetulan semua anggota kelompok menggunakan provider telkomsel.
